@@ -6,10 +6,210 @@ FFXIMemory
 </name>
 </assembly>
 <members>
-<member name="F:FFXIMemory.Thing.IconField_">
+<member name="T:FFXIMemory.ZoneMobs">
+	<summary>
+ Mob Data - String binding class
+ </summary>
+</member><member name="T:FFXIMemory.MemoryScanner.ChatLine">
+	<summary>
+ Structure of the chatline
+ </summary>
+	<remarks></remarks>
+</member><member name="T:FFXIMemory.MemoryScanner.ThreadItems">
+	<summary>
+ Unused atm
+ </summary>
+	<remarks></remarks>
+</member><member name="P:FFXIMemory.MemoryScanner.Scanner">
+	<summary>
+ Singleton property
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:FFXIMemory.MemoryScanner.IsGameLoaded">
+	<summary>
+ Checks to see if the game object has been initiated and that the game is running
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:FFXIMemory.MemoryScanner.FFXI">
+	<summary>
+ FFXI Property object
+ This holds the process info and memory locations 
+ and various game info
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:FFXIMemory.MemoryScanner.MyID">
+	<summary>
+ My current Zone ID
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:FFXIMemory.MemoryScanner.TargetID">
+	<summary>
+ The Id of my current target
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:FFXIMemory.MemoryScanner.CurrentMap">
+	<summary>
+ The id of the current map
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:FFXIMemory.MemoryScanner.IsRunning">
+	<summary>
+ Boolean used to determine if the scanner is currently 
+ running and scanning memory
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:FFXIMemory.MemoryScanner.AttachedWatcherTypes">
+	<summary>
+ The different watcher types that are attached
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:FFXIMemory.MemoryScanner.RefreshRate">
+	<summary>
+ The scanning rate interval.  The default is 200 ms
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks>Anything less than 10 causes ridiculous memory consumption 
+ and therefore is dropped and 10 is the minimum set vaule.  100ms is 
+ an ideal interval for smooth movement and low memory consumption</remarks>
+</member><member name="T:FFXIMemory.MemoryScanner.ChatOffsets">
+	<summary>
+ Enumeration to hold the chat offset positions
+ </summary>
+	<remarks></remarks>
+</member><member name="M:FFXIMemory.MemoryScanner.AttachWatcher(FFXIMemory.Watcher)">
+	<summary>
+ Attaches a watcher to the scanners event queue
+ </summary>
+	<param name="watcher">The watcher to attach to the event queue</param>
+	<remarks></remarks>
+</member><member name="M:FFXIMemory.MemoryScanner.DetachWatcher(FFXIMemory.Watcher)">
+	<summary>
+ Detaches a watcher from the event queue
+ </summary>
+	<param name="watcher">The watcher to detach</param>
+	<remarks></remarks>
+</member><member name="M:FFXIMemory.MemoryScanner.EndScanning">
+	<summary>
+ Ends the scanning and detaches all watchers
+ </summary>
+	<remarks></remarks>
+</member><member name="M:FFXIMemory.MemoryScanner.CleanUpString(System.Byte[],System.String,FFXIMemory.MemoryScanner.ChatLine)">
+	<summary>
+ Cleans up the Linetext from the chatlog, removing any strange or unknown characters
+ </summary>
+	<param name="bytes">The bytes to perform clean up on</param>
+	<param name="ChatType">The chat line type</param>
+	<param name="li">the chatline structure</param>
+	<returns>String</returns>
+	<remarks></remarks>
+</member><member name="M:FFXIMemory.MemoryScanner.ConvertToJPText(System.String)">
+	<summary>
+ Converts a string to Shift-JIS format
+ </summary>
+	<param name="source">The source string to convert</param>
+	<returns>A string in Shift-JIS format</returns>
+	<remarks>This only works if the user has support for far eastern languages installed</remarks>
+</member><member name="M:FFXIMemory.MemoryScanner.Watcher_TypeChanged(FFXIMemory.MemoryScanner.WatcherTypes)">
+	<summary>
+ Event handler for attached watchers TypeChanged event
+ </summary>
+	<param name="NewType">The new type that the watcher is using</param>
+	<remarks></remarks>
+</member><member name="M:FFXIMemory.MemoryScanner._mobs_StatusChanged(FFXIMemory.MobData,FFXIMemory.MobList.MobStatus)">
+	<summary>
+ EventHandler for the MobList Mob StatusChanged Event.
+ </summary>
+	<param name="Mob">The Mob Object</param>
+	<param name="Status">The new status</param>
+	<remarks></remarks>
+</member><member name="M:FFXIMemory.MemoryScanner.NotifyMobListUpdated(FFXIMemory.MobList)">
+	<summary>
+ Method to notify all attached watchers that want it of an update to the Mob list
+ </summary>
+	<param name="Mobs">The updated mob list</param>
+	<remarks></remarks>
+</member><member name="M:FFXIMemory.MemoryScanner.NotifyMobStatusChanged(FFXIMemory.MobData,FFXIMemory.MobList.MobStatus)">
+	<summary>
+ Method to notify all attached watchers that want it of an update to a mobs status
+ </summary>
+	<param name="Mob">The mob object</param>
+	<param name="Status">The new status (Alive, Dead, OutOfRange)</param>
+	<remarks></remarks>
+</member><member name="M:FFXIMemory.MemoryScanner.NotifyZoneChanged(System.Int16,System.Int16)">
+	<summary>
+ Method to notify all attached watchers that the current zone has changed
+ </summary>
+	<param name="LastZone">The previous zone</param>
+	<param name="NewZone">The new zone</param>
+	<remarks></remarks>
+</member><member name="M:FFXIMemory.MemoryScanner._timer_elapsed(System.Object,System.Timers.ElapsedEventArgs)">
+	<summary>
+ Handler for the timer elapsed event
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:FFXIMemory.MemoryScanner.ScanningThread">
+	<summary>
+ Method for scanning memory in the background
+ </summary>
+	<remarks></remarks>
+</member><member name="T:FFXIMemory.MemoryScanner">
+	<summary>
+ Observer Pattern memory scanning implementation
+ </summary>
+	<remarks></remarks>
+</member><member name="F:FFXIMemory.Thing.IconField_">
 	<summary>
  Helper field; if set, it will be used by GetIcon to find and return an icon image.
  </summary>
+</member><member name="M:FFXIMemory.Memory.FindProcess(System.String)">
+	<summary>
+ Finds the first instance of a process by it's name
+ </summary>
+	<param name="pName">The name of the process</param>
+	<returns>Process object</returns>
+	<remarks></remarks>
+</member><member name="M:FFXIMemory.Memory.GetModule(System.String,System.Diagnostics.Process)">
+	<summary>
+ Gets a specified Process Module from a process by its name
+ </summary>
+	<param name="ModuleName">The module name</param>
+	<param name="ProcessInstance">The process to search</param>
+	<returns>Process Module</returns>
+	<remarks></remarks>
+</member><member name="M:FFXIMemory.Memory.GetModuleEndAddress(System.String,System.Diagnostics.Process)">
+	<summary>
+ Gets the end address of the specifed process module
+ </summary>
+	<param name="ModuleName">The module name</param>
+	<param name="ProcessInstance">The process to search</param>
+	<returns>The end point of the specified module</returns>
+	<remarks></remarks>
+</member><member name="M:FFXIMemory.Memory.getBaseAddress(System.Diagnostics.Process,System.String)">
+	<summary>
+ Gets the base address of the specified process module
+ </summary>
+	<param name="ProcessInstance">The proces instance to search</param>
+	<param name="ModuleName">The name of the module</param>
+	<remarks></remarks>
 </member><member name="M:FFXIMemory.FFXI.GetInstallPath">
 	<summary>
  Gets Playonline Installation Folder Path
@@ -330,6 +530,25 @@ FFXIMemory
 	<value></value>
 	<returns></returns>
 	<remarks></remarks>
+</member><member name="M:FFXIMemory.Watcher.MobListUpdated(FFXIMemory.MobList)">
+	<summary>
+ IWatcher MoblistUpdated Implementation
+ </summary>
+	<param name="Mobs">The Updated mob list</param>
+	<remarks></remarks>
+</member><member name="M:FFXIMemory.Watcher.MobStatusUpdated(FFXIMemory.MobData,FFXIMemory.MobList.MobStatus)">
+	<summary>
+ IWatcher MobStatusUpdated Implementatin
+ </summary>
+	<param name="Mob">The mob who's status has changed</param>
+	<param name="Status">The mobs new status</param>
+	<remarks></remarks>
+</member><member name="M:FFXIMemory.MobList.ToClonedArray">
+	<summary>
+ Creates a shallow copied array of the mobs in the list
+ </summary>
+	<returns>Array of MobData</returns>
+	<remarks></remarks>
 </member><member name="P:FFXIMemory.IItem.TypeName">
 	<summary>Gets a name for this type of IThing.</summary>
 </member><member name="M:FFXIMemory.IItem.GetAllFields">
@@ -387,19 +606,6 @@ FFXIMemory
  </summary>
 	<param name="Document">The XML document to use as context for the created XML representation.</param>
 	<returns>The created XML representation of this IThing.</returns>
-</member><member name="M:FFXIMemory.Watcher.MobListUpdated(FFXIMemory.MobList)">
-	<summary>
- IWatcher MoblistUpdated Implementation
- </summary>
-	<param name="Mobs">The Updated mob list</param>
-	<remarks></remarks>
-</member><member name="M:FFXIMemory.Watcher.MobStatusUpdated(FFXIMemory.MobData,FFXIMemory.MobList.MobStatus)">
-	<summary>
- IWatcher MobStatusUpdated Implementatin
- </summary>
-	<param name="Mob">The mob who's status has changed</param>
-	<param name="Status">The mobs new status</param>
-	<remarks></remarks>
 </member><member name="P:FFXIMemory.My.Resources.Resources.ResourceManager">
 	<summary>
   Returns the cached ResourceManager instance used by this class.
@@ -413,212 +619,6 @@ FFXIMemory
 	<summary>
   A strongly-typed resource class, for looking up localized strings, etc.
 </summary>
-</member><member name="M:FFXIMemory.MobList.ToClonedArray">
-	<summary>
- Creates a shallow copied array of the mobs in the list
- </summary>
-	<returns>Array of MobData</returns>
-	<remarks></remarks>
-</member><member name="T:FFXIMemory.ZoneMobs">
-	<summary>
- Mob Data - String binding class
- </summary>
-</member><member name="T:FFXIMemory.MemoryScanner.ChatLine">
-	<summary>
- Structure of the chatline
- </summary>
-	<remarks></remarks>
-</member><member name="T:FFXIMemory.MemoryScanner.ThreadItems">
-	<summary>
- Unused atm
- </summary>
-	<remarks></remarks>
-</member><member name="P:FFXIMemory.MemoryScanner.Scanner">
-	<summary>
- Singleton property
- </summary>
-	<value></value>
-	<returns></returns>
-	<remarks></remarks>
-</member><member name="P:FFXIMemory.MemoryScanner.IsGameLoaded">
-	<summary>
- Checks to see if the game object has been initiated and that the game is running
- </summary>
-	<value></value>
-	<returns></returns>
-	<remarks></remarks>
-</member><member name="P:FFXIMemory.MemoryScanner.FFXI">
-	<summary>
- FFXI Property object
- This holds the process info and memory locations 
- and various game info
- </summary>
-	<value></value>
-	<returns></returns>
-	<remarks></remarks>
-</member><member name="P:FFXIMemory.MemoryScanner.MyID">
-	<summary>
- My current Zone ID
- </summary>
-	<value></value>
-	<returns></returns>
-	<remarks></remarks>
-</member><member name="P:FFXIMemory.MemoryScanner.TargetID">
-	<summary>
- The Id of my current target
- </summary>
-	<value></value>
-	<returns></returns>
-	<remarks></remarks>
-</member><member name="P:FFXIMemory.MemoryScanner.CurrentMap">
-	<summary>
- The id of the current map
- </summary>
-	<value></value>
-	<returns></returns>
-	<remarks></remarks>
-</member><member name="P:FFXIMemory.MemoryScanner.IsRunning">
-	<summary>
- Boolean used to determine if the scanner is currently 
- running and scanning memory
- </summary>
-	<value></value>
-	<returns></returns>
-	<remarks></remarks>
-</member><member name="P:FFXIMemory.MemoryScanner.AttachedWatcherTypes">
-	<summary>
- The different watcher types that are attached
- </summary>
-	<value></value>
-	<returns></returns>
-	<remarks></remarks>
-</member><member name="P:FFXIMemory.MemoryScanner.RefreshRate">
-	<summary>
- The scanning rate interval.  The default is 200 ms
- </summary>
-	<value></value>
-	<returns></returns>
-	<remarks>Anything less than 10 causes ridiculous memory consumption 
- and therefore is dropped and 10 is the minimum set vaule.  100ms is 
- an ideal interval for smooth movement and low memory consumption</remarks>
-</member><member name="T:FFXIMemory.MemoryScanner.ChatOffsets">
-	<summary>
- Enumeration to hold the chat offset positions
- </summary>
-	<remarks></remarks>
-</member><member name="M:FFXIMemory.MemoryScanner.AttachWatcher(FFXIMemory.Watcher)">
-	<summary>
- Attaches a watcher to the scanners event queue
- </summary>
-	<param name="watcher">The watcher to attach to the event queue</param>
-	<remarks></remarks>
-</member><member name="M:FFXIMemory.MemoryScanner.DetachWatcher(FFXIMemory.Watcher)">
-	<summary>
- Detaches a watcher from the event queue
- </summary>
-	<param name="watcher">The watcher to detach</param>
-	<remarks></remarks>
-</member><member name="M:FFXIMemory.MemoryScanner.EndScanning">
-	<summary>
- Ends the scanning and detaches all watchers
- </summary>
-	<remarks></remarks>
-</member><member name="M:FFXIMemory.MemoryScanner.CleanUpString(System.Byte[],System.String,FFXIMemory.MemoryScanner.ChatLine)">
-	<summary>
- Cleans up the Linetext from the chatlog, removing any strange or unknown characters
- </summary>
-	<param name="bytes">The bytes to perform clean up on</param>
-	<param name="ChatType">The chat line type</param>
-	<param name="li">the chatline structure</param>
-	<returns>String</returns>
-	<remarks></remarks>
-</member><member name="M:FFXIMemory.MemoryScanner.ConvertToJPText(System.String)">
-	<summary>
- Converts a string to Shift-JIS format
- </summary>
-	<param name="source">The source string to convert</param>
-	<returns>A string in Shift-JIS format</returns>
-	<remarks>This only works if the user has support for far eastern languages installed</remarks>
-</member><member name="M:FFXIMemory.MemoryScanner.Watcher_TypeChanged(FFXIMemory.MemoryScanner.WatcherTypes)">
-	<summary>
- Event handler for attached watchers TypeChanged event
- </summary>
-	<param name="NewType">The new type that the watcher is using</param>
-	<remarks></remarks>
-</member><member name="M:FFXIMemory.MemoryScanner._mobs_StatusChanged(FFXIMemory.MobData,FFXIMemory.MobList.MobStatus)">
-	<summary>
- EventHandler for the MobList Mob StatusChanged Event.
- </summary>
-	<param name="Mob">The Mob Object</param>
-	<param name="Status">The new status</param>
-	<remarks></remarks>
-</member><member name="M:FFXIMemory.MemoryScanner.NotifyMobListUpdated(FFXIMemory.MobList)">
-	<summary>
- Method to notify all attached watchers that want it of an update to the Mob list
- </summary>
-	<param name="Mobs">The updated mob list</param>
-	<remarks></remarks>
-</member><member name="M:FFXIMemory.MemoryScanner.NotifyMobStatusChanged(FFXIMemory.MobData,FFXIMemory.MobList.MobStatus)">
-	<summary>
- Method to notify all attached watchers that want it of an update to a mobs status
- </summary>
-	<param name="Mob">The mob object</param>
-	<param name="Status">The new status (Alive, Dead, OutOfRange)</param>
-	<remarks></remarks>
-</member><member name="M:FFXIMemory.MemoryScanner.NotifyZoneChanged(System.Int16,System.Int16)">
-	<summary>
- Method to notify all attached watchers that the current zone has changed
- </summary>
-	<param name="LastZone">The previous zone</param>
-	<param name="NewZone">The new zone</param>
-	<remarks></remarks>
-</member><member name="M:FFXIMemory.MemoryScanner._timer_elapsed(System.Object,System.Timers.ElapsedEventArgs)">
-	<summary>
- Handler for the timer elapsed event
- </summary>
-	<param name="sender"></param>
-	<param name="e"></param>
-	<remarks></remarks>
-</member><member name="M:FFXIMemory.MemoryScanner.ScanningThread">
-	<summary>
- Method for scanning memory in the background
- </summary>
-	<remarks></remarks>
-</member><member name="T:FFXIMemory.MemoryScanner">
-	<summary>
- Observer Pattern memory scanning implementation
- </summary>
-	<remarks></remarks>
-</member><member name="M:FFXIMemory.Memory.FindProcess(System.String)">
-	<summary>
- Finds the first instance of a process by it's name
- </summary>
-	<param name="pName">The name of the process</param>
-	<returns>Process object</returns>
-	<remarks></remarks>
-</member><member name="M:FFXIMemory.Memory.GetModule(System.String,System.Diagnostics.Process)">
-	<summary>
- Gets a specified Process Module from a process by its name
- </summary>
-	<param name="ModuleName">The module name</param>
-	<param name="ProcessInstance">The process to search</param>
-	<returns>Process Module</returns>
-	<remarks></remarks>
-</member><member name="M:FFXIMemory.Memory.GetModuleEndAddress(System.String,System.Diagnostics.Process)">
-	<summary>
- Gets the end address of the specifed process module
- </summary>
-	<param name="ModuleName">The module name</param>
-	<param name="ProcessInstance">The process to search</param>
-	<returns>The end point of the specified module</returns>
-	<remarks></remarks>
-</member><member name="M:FFXIMemory.Memory.getBaseAddress(System.Diagnostics.Process,System.String)">
-	<summary>
- Gets the base address of the specified process module
- </summary>
-	<param name="ProcessInstance">The proces instance to search</param>
-	<param name="ModuleName">The name of the module</param>
-	<remarks></remarks>
 </member>
 </members>
 </doc>

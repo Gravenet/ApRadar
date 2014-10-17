@@ -14,6 +14,208 @@ InitializeComponent
 	<summary>
 EnhancedGridControl
 </summary>
+</member><member name="P:ApRadar3.Chat.ChatBaseOffset">
+	<summary>
+ Get the chatlog base offset
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:ApRadar3.Chat.POL">
+	<summary>
+ Process to monitor
+ </summary>
+	<value>POL Process</value>
+	<remarks></remarks>
+</member><member name="E:ApRadar3.Chat.NewLine">
+	<summary>
+ Event raised when a new chat line is added
+ </summary>
+	<param name="LineInfo">The chatline</param>
+	<remarks></remarks>
+</member><member name="T:ApRadar3.Chat.LineAdded">
+	<summary>
+ Delegate used for invoking the main thread from the chat monitor thread
+ </summary>
+	<param name="LineInfo">The chatline</param>
+	<remarks></remarks>
+</member><member name="T:ApRadar3.Chat.offsets">
+	<summary>
+ Enumeration to hold offset positions
+ </summary>
+	<remarks></remarks>
+</member><member name="T:ApRadar3.Chat.ChatLine">
+	<summary>
+ Structure of the chatline
+ </summary>
+	<remarks></remarks>
+</member><member name="T:ApRadar3.Chat.ThreadItems">
+	<summary>
+ Unused atm
+ </summary>
+	<remarks></remarks>
+</member><member name="M:ApRadar3.Chat.#ctor">
+	<summary>
+ Create a new instance of the ChatLog class
+ </summary>
+	<remarks></remarks>
+</member><member name="M:ApRadar3.Chat.Initialize">
+	<summary>
+ Initializes the chat monitor, checking for POL and getting the ChatBase pointer
+ </summary>
+	<returns>True if all is well, False if errors</returns>
+	<remarks></remarks>
+</member><member name="M:ApRadar3.Chat.StartLogging">
+	<summary>
+ Start monitoring the chatlog
+ </summary>
+	<remarks></remarks>
+</member><member name="M:ApRadar3.Chat.StopLogging">
+	<summary>
+ Stop monitoring the chatlog
+ </summary>
+	<remarks></remarks>
+</member><member name="M:ApRadar3.Chat.chattimer_tick(System.Object,System.Timers.ElapsedEventArgs)">
+	<summary>
+ The chatTimer tick event handler
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:ApRadar3.Chat.getLoginfo">
+	<summary>
+ Sub called by the timer to get the log info
+ </summary>
+	<remarks></remarks>
+</member><member name="M:ApRadar3.Chat.getoffsets">
+	<summary>
+ Gets the curent chatline offsets
+ </summary>
+	<remarks></remarks>
+</member><member name="M:ApRadar3.Chat.GetBlockLineCount">
+	<summary>
+ Gets the line count in the current block
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ApRadar3.Chat.GetTotalChatLineCount">
+	<summary>
+ Gets the total line count
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ApRadar3.Chat.OnNewLine(ApRadar3.Chat.ChatLine)">
+	<summary>
+ Function called from within the thread to call the newline event.  If the SyncObject is set, it will check if InvokeRequired and do so if necessary
+ </summary>
+	<param name="iLineInfo"></param>
+	<remarks></remarks>
+</member><member name="M:ApRadar3.Chat.Process">
+	<summary>
+ The monitoring thread
+ </summary>
+	<remarks>Called every 100ms by the loop timer</remarks>
+</member><member name="M:ApRadar3.Chat.CleanUpString(System.Byte[],System.String,ApRadar3.Chat.ChatLine)">
+	<summary>
+ Cleans up the Linetext from the chatlog, removing any strange or unknown characters
+ </summary>
+	<param name="bytes">The bytes to perform clean up on</param>
+	<param name="ChatType">The chat line type</param>
+	<param name="li">the chatline structure</param>
+	<returns>String</returns>
+	<remarks></remarks>
+</member><member name="M:ApRadar3.Chat.ConvertToJPText(System.String)">
+	<summary>
+ Converts a string to Shift-JIS format
+ </summary>
+	<param name="source">The source string to convert</param>
+	<returns>A string in Shift-JIS format</returns>
+	<remarks>This only works if the user has support for far eastern languages installed</remarks>
+</member><member name="M:ApRadar3.Chat.SetLineText(System.Int32,System.String)">
+	<summary>
+ Test function for changing the text ina chatline
+ </summary>
+	<param name="LineNumber">The line number to change</param>
+	<param name="NewText">The new text to set</param>
+	<remarks>Does not work properly and is not currently used</remarks>
+</member><member name="M:ApRadar3.UpdateDockDragArgs.#ctor(System.Single,System.Single)">
+	<summary>
+ Summary for UpdateDockDragArgs
+ </summary>
+</member><member name="F:ApRadar3.InputManager.MapVirtualKeyMapTypes.MAPVK_VK_TO_VSC">
+	<summary>uCode is a virtual-key code and is translated into a scan code.
+ If it is a virtual-key code that does not distinguish between left- and 
+ right-hand keys, the left-hand scan code is returned. 
+ If there is no translation, the function returns 0.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:ApRadar3.InputManager.MapVirtualKeyMapTypes.MAPVK_VSC_TO_VK">
+	<summary>uCode is a scan code and is translated into a virtual-key code that
+ does not distinguish between left- and right-hand keys. If there is no 
+ translation, the function returns 0.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:ApRadar3.InputManager.MapVirtualKeyMapTypes.MAPVK_VK_TO_CHAR">
+	<summary>uCode is a virtual-key code and is translated into an unshifted
+ character value in the low-order word of the return value. Dead keys (diacritics)
+ are indicated by setting the top bit of the return value. If there is no
+ translation, the function returns 0.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:ApRadar3.InputManager.MapVirtualKeyMapTypes.MAPVK_VSC_TO_VK_EX">
+	<summary>Windows NT/2000/XP: uCode is a scan code and is translated into a
+ virtual-key code that distinguishes between left- and right-hand keys. If
+ there is no translation, the function returns 0.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:ApRadar3.InputManager.MapVirtualKeyMapTypes.MAPVK_VK_TO_VSC_EX">
+	<summary>Not currently documented
+ </summary>
+	<remarks></remarks>
+</member><member name="T:ApRadar3.InputManager.MapVirtualKeyMapTypes">
+	<summary>The set of valid MapTypes used in MapVirtualKey
+ </summary>
+	<remarks></remarks>
+</member><member name="M:ApRadar3.InputManager.MapVirtualKey(System.UInt32,ApRadar3.InputManager.MapVirtualKeyMapTypes)">
+	<summary>The MapVirtualKey function translates (maps) a virtual-key code into a scan
+ code or character value, or translates a scan code into a virtual-key code
+ </summary>
+	<param name="uCode">[in] Specifies the virtual-key code or scan code for a key.
+ How this value is interpreted depends on the value of the uMapType parameter</param>
+	<param name="uMapType">[in] Specifies the translation to perform. The value of this
+ parameter depends on the value of the uCode parameter.</param>
+	<returns>Either a scan code, a virtual-key code, or a character value, depending on
+ the value of uCode and uMapType. If there is no translation, the return value is zero</returns>
+	<remarks></remarks>
+</member><member name="M:ApRadar3.AppBarForm.processWatchTimer_Tick(System.Object,System.EventArgs)">
+	<summary>
+ This timer will watch for any new spawned pol processes
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="M:ApRadar3.AppBarForm.LoadAvailableProcesses">
+	<summary>
+ Method to load any available pol processes
+ </summary>
+	<remarks></remarks>
+</member><member name="M:ApRadar3.AppBarForm.processItem_click(System.Object,System.EventArgs)">
+	<summary>
+ This method handles the click event for the process items.
+ </summary>
+	<param name="sender"></param>
+	<param name="e"></param>
+	<remarks></remarks>
+</member><member name="T:ApRadar3.MainModule.MobInfo">
+	<summary>
+ Mob structure
+ </summary>
+</member><member name="M:ApRadar3.MainModule.ValidateUser">
+	<summary>
+ Validates an elitemmo user agianst the elitemmo web service
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
 </member><member name="M:ApRadar3.Encrypt.CreateKey">
 	<summary>
  Creates the encryption key to be used for encrypting files
@@ -54,9 +256,212 @@ EnhancedGridControl
 	<param name="Data">The encrypted byte array</param>
 	<returns>The decrypted </returns>
 	<remarks></remarks>
-</member><member name="M:ApRadar3.UpdateDockDragArgs.#ctor(System.Single,System.Single)">
+</member><member name="M:ApRadar3.Office2007Renderer.#ctor">
 	<summary>
- Summary for UpdateDockDragArgs
+ Initialize a new instance of the Office2007Renderer class.
+ </summary>
+</member><member name="M:ApRadar3.Office2007Renderer.OnRenderArrow(System.Windows.Forms.ToolStripArrowRenderEventArgs)">
+	<summary>
+ Raises the RenderArrow event. 
+ </summary>
+	<param name="e">An ToolStripArrowRenderEventArgs containing the event data.</param>
+</member><member name="M:ApRadar3.Office2007Renderer.OnRenderButtonBackground(System.Windows.Forms.ToolStripItemRenderEventArgs)">
+	<summary>
+ Raises the RenderButtonBackground event. 
+ </summary>
+	<param name="e">An ToolStripItemRenderEventArgs containing the event data.</param>
+</member><member name="M:ApRadar3.Office2007Renderer.OnRenderDropDownButtonBackground(System.Windows.Forms.ToolStripItemRenderEventArgs)">
+	<summary>
+ Raises the RenderDropDownButtonBackground event. 
+ </summary>
+	<param name="e">An ToolStripItemRenderEventArgs containing the event data.</param>
+</member><member name="M:ApRadar3.Office2007Renderer.OnRenderItemCheck(System.Windows.Forms.ToolStripItemImageRenderEventArgs)">
+	<summary>
+ Raises the RenderItemCheck event. 
+ </summary>
+	<param name="e">An ToolStripItemImageRenderEventArgs containing the event data.</param>
+</member><member name="M:ApRadar3.Office2007Renderer.OnRenderItemText(System.Windows.Forms.ToolStripItemTextRenderEventArgs)">
+	<summary>
+ Raises the RenderItemText event. 
+ </summary>
+	<param name="e">An ToolStripItemTextRenderEventArgs containing the event data.</param>
+</member><member name="M:ApRadar3.Office2007Renderer.OnRenderItemImage(System.Windows.Forms.ToolStripItemImageRenderEventArgs)">
+	<summary>
+ Raises the RenderItemImage event. 
+ </summary>
+	<param name="e">An ToolStripItemImageRenderEventArgs containing the event data.</param>
+</member><member name="M:ApRadar3.Office2007Renderer.OnRenderMenuItemBackground(System.Windows.Forms.ToolStripItemRenderEventArgs)">
+	<summary>
+ Raises the RenderMenuItemBackground event. 
+ </summary>
+	<param name="e">An ToolStripItemRenderEventArgs containing the event data.</param>
+</member><member name="M:ApRadar3.Office2007Renderer.OnRenderSplitButtonBackground(System.Windows.Forms.ToolStripItemRenderEventArgs)">
+	<summary>
+ Raises the RenderSplitButtonBackground event. 
+ </summary>
+	<param name="e">An ToolStripItemRenderEventArgs containing the event data.</param>
+</member><member name="M:ApRadar3.Office2007Renderer.OnRenderStatusStripSizingGrip(System.Windows.Forms.ToolStripRenderEventArgs)">
+	<summary>
+ Raises the RenderStatusStripSizingGrip event. 
+ </summary>
+	<param name="e">An ToolStripRenderEventArgs containing the event data.</param>
+</member><member name="M:ApRadar3.Office2007Renderer.OnRenderToolStripContentPanelBackground(System.Windows.Forms.ToolStripContentPanelRenderEventArgs)">
+	<summary>
+ Raises the RenderToolStripContentPanelBackground event. 
+ </summary>
+	<param name="e">An ToolStripContentPanelRenderEventArgs containing the event data.</param>
+</member><member name="M:ApRadar3.Office2007Renderer.OnRenderSeparator(System.Windows.Forms.ToolStripSeparatorRenderEventArgs)">
+	<summary>
+ Raises the RenderSeparator event. 
+ </summary>
+	<param name="e">An ToolStripSeparatorRenderEventArgs containing the event data.</param>
+</member><member name="M:ApRadar3.Office2007Renderer.OnRenderToolStripBackground(System.Windows.Forms.ToolStripRenderEventArgs)">
+	<summary>
+ Raises the RenderToolStripBackground event. 
+ </summary>
+	<param name="e">An ToolStripRenderEventArgs containing the event data.</param>
+</member><member name="M:ApRadar3.Office2007Renderer.OnRenderImageMargin(System.Windows.Forms.ToolStripRenderEventArgs)">
+	<summary>
+ Raises the RenderImageMargin event. 
+ </summary>
+	<param name="e">An ToolStripRenderEventArgs containing the event data.</param>
+</member><member name="M:ApRadar3.Office2007Renderer.OnRenderToolStripBorder(System.Windows.Forms.ToolStripRenderEventArgs)">
+	<summary>
+ Raises the RenderToolStripBorder event. 
+ </summary>
+	<param name="e">An ToolStripRenderEventArgs containing the event data.</param>
+</member><member name="T:ApRadar3.Office2007Renderer">
+	<summary>
+ Draw ToolStrips using the Office 2007 themed appearance.
+ </summary>
+</member><member name="M:ApRadar3.UseAntiAlias.#ctor(System.Drawing.Graphics)">
+	<summary>
+ Initialize a new instance of the UseAntiAlias class.
+ </summary>
+	<param name="g">Graphics instance.</param>
+</member><member name="M:ApRadar3.UseAntiAlias.Dispose">
+	<summary>
+ Revert the SmoothingMode back to original setting.
+ </summary>
+</member><member name="T:ApRadar3.UseAntiAlias">
+	<summary>
+ Set the SmoothingMode=AntiAlias until instance disposed.
+ </summary>
+</member><member name="M:ApRadar3.UseClearTypeGridFit.#ctor(System.Drawing.Graphics)">
+	<summary>
+ Initialize a new instance of the UseClearTypeGridFit class.
+ </summary>
+	<param name="g">Graphics instance.</param>
+</member><member name="M:ApRadar3.UseClearTypeGridFit.Dispose">
+	<summary>
+ Revert the TextRenderingHint back to original setting.
+ </summary>
+</member><member name="T:ApRadar3.UseClearTypeGridFit">
+	<summary>
+ Set the TextRenderingHint.ClearTypeGridFit until instance disposed.
+ </summary>
+</member><member name="M:ApRadar3.UseClipping.#ctor(System.Drawing.Graphics,System.Drawing.Drawing2D.GraphicsPath)">
+	<summary>
+ Initialize a new instance of the UseClipping class.
+ </summary>
+	<param name="g">Graphics instance.</param>
+	<param name="path">Clipping path.</param>
+</member><member name="M:ApRadar3.UseClipping.#ctor(System.Drawing.Graphics,System.Drawing.Region)">
+	<summary>
+ Initialize a new instance of the UseClipping class.
+ </summary>
+	<param name="g">Graphics instance.</param>
+	<param name="region">Clipping region.</param>
+</member><member name="M:ApRadar3.UseClipping.Dispose">
+	<summary>
+ Revert clipping back to origina setting.
+ </summary>
+</member><member name="T:ApRadar3.UseClipping">
+	<summary>
+ Set the clipping region until instance disposed.
+ </summary>
+</member><member name="P:ApRadar3.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:ApRadar3.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="T:ApRadar3.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member><member name="M:ApRadar3.CustomRenderer.OnRenderButtonBackground(System.Windows.Forms.ToolStripItemRenderEventArgs)">
+	<summary>
+ Raises the RenderButtonBackground event. 
+ </summary>
+	<param name="e">An ToolStripItemRenderEventArgs containing the event data.</param>
+</member><member name="F:ApRadar3.AudioManager.SoundFlags.SND_SYNC">
+	<summary>
+ The sound is played synchronously, and PlaySound returns after 
+ the sound event completes. This is the default behavior.
+ </summary>
+</member><member name="F:ApRadar3.AudioManager.SoundFlags.SND_ASYNC">
+	<summary>
+ The sound is played asynchronously and PlaySound returns 
+ immediately after beginning the sound. To terminate an 
+ asynchronously played waveform sound, call PlaySound with 
+ pszSound set to NULL.
+ </summary>
+</member><member name="F:ApRadar3.AudioManager.SoundFlags.SND_NODEFAULT">
+	<summary>
+ No default sound event is used. If the sound cannot be found, 
+ PlaySound returns silently without playing the default sound.
+ </summary>
+</member><member name="F:ApRadar3.AudioManager.SoundFlags.SND_MEMORY">
+	<summary>
+ The pszSound parameter points to a sound loaded in memory.
+ </summary>
+</member><member name="F:ApRadar3.AudioManager.SoundFlags.SND_LOOP">
+	<summary>
+ The sound plays repeatedly until PlaySound is called again 
+ with the pszSound parameter set to NULL. If this flag is 
+ set, you must also set the SND_ASYNC flag.
+ </summary>
+</member><member name="F:ApRadar3.AudioManager.SoundFlags.SND_NOSTOP">
+	<summary>
+ The specified sound event will yield to another sound event 
+ that is already playing. If a sound cannot be played because 
+ the resource needed to generate that sound is busy playing 
+ another sound, the function immediately returns False without 
+ playing the requested sound.
+ </summary>
+	<remarks>If this flag is not specified, PlaySound attempts 
+ to stop the currently playing sound so that the device can 
+ be used to play the new sound.
+ </remarks>
+</member><member name="F:ApRadar3.AudioManager.SoundFlags.SND_PURGE">
+	<summary>
+ Stop playing wave
+ </summary>
+</member><member name="F:ApRadar3.AudioManager.SoundFlags.SND_NOWAIT">
+	<summary>
+ If the driver is busy, return immediately without playing 
+ the sound.
+ </summary>
+</member><member name="F:ApRadar3.AudioManager.SoundFlags.SND_ALIAS">
+	<summary>
+ The pszSound parameter is a system-event alias in the 
+ registry or the WIN.INI file. Do not use with either 
+ SND_FILENAME or SND_RESOURCE.
+ </summary>
+</member><member name="F:ApRadar3.AudioManager.SoundFlags.SND_FILENAME">
+	<summary>
+ The pszSound parameter is a file name. If the file cannot be 
+ found, the function plays the default sound unless the 
+ SND_NODEFAULT flag is set.
+ </summary>
+</member><member name="F:ApRadar3.AudioManager.SoundFlags.SND_RESOURCE">
+	<summary>
+ The pszSound parameter is a resource identifier; hmod must 
+ identify the instance that contains the resource.
  </summary>
 </member><member name="P:ApRadar3.Office2007ColorTable.ButtonPressedGradientBegin">
 	<summary>
@@ -210,336 +615,39 @@ EnhancedGridControl
 	<summary>
  Provide Office 2007 Blue Theme colors
  </summary>
-</member><member name="F:ApRadar3.InputManager.MapVirtualKeyMapTypes.MAPVK_VK_TO_VSC">
-	<summary>uCode is a virtual-key code and is translated into a scan code.
- If it is a virtual-key code that does not distinguish between left- and 
- right-hand keys, the left-hand scan code is returned. 
- If there is no translation, the function returns 0.
- </summary>
-	<remarks></remarks>
-</member><member name="F:ApRadar3.InputManager.MapVirtualKeyMapTypes.MAPVK_VSC_TO_VK">
-	<summary>uCode is a scan code and is translated into a virtual-key code that
- does not distinguish between left- and right-hand keys. If there is no 
- translation, the function returns 0.
- </summary>
-	<remarks></remarks>
-</member><member name="F:ApRadar3.InputManager.MapVirtualKeyMapTypes.MAPVK_VK_TO_CHAR">
-	<summary>uCode is a virtual-key code and is translated into an unshifted
- character value in the low-order word of the return value. Dead keys (diacritics)
- are indicated by setting the top bit of the return value. If there is no
- translation, the function returns 0.
- </summary>
-	<remarks></remarks>
-</member><member name="F:ApRadar3.InputManager.MapVirtualKeyMapTypes.MAPVK_VSC_TO_VK_EX">
-	<summary>Windows NT/2000/XP: uCode is a scan code and is translated into a
- virtual-key code that distinguishes between left- and right-hand keys. If
- there is no translation, the function returns 0.
- </summary>
-	<remarks></remarks>
-</member><member name="F:ApRadar3.InputManager.MapVirtualKeyMapTypes.MAPVK_VK_TO_VSC_EX">
-	<summary>Not currently documented
- </summary>
-	<remarks></remarks>
-</member><member name="T:ApRadar3.InputManager.MapVirtualKeyMapTypes">
-	<summary>The set of valid MapTypes used in MapVirtualKey
- </summary>
-	<remarks></remarks>
-</member><member name="M:ApRadar3.InputManager.MapVirtualKey(System.UInt32,ApRadar3.InputManager.MapVirtualKeyMapTypes)">
-	<summary>The MapVirtualKey function translates (maps) a virtual-key code into a scan
- code or character value, or translates a scan code into a virtual-key code
- </summary>
-	<param name="uCode">[in] Specifies the virtual-key code or scan code for a key.
- How this value is interpreted depends on the value of the uMapType parameter</param>
-	<param name="uMapType">[in] Specifies the translation to perform. The value of this
- parameter depends on the value of the uCode parameter.</param>
-	<returns>Either a scan code, a virtual-key code, or a character value, depending on
- the value of uCode and uMapType. If there is no translation, the return value is zero</returns>
-	<remarks></remarks>
-</member><member name="P:ApRadar3.My.Resources.Resources.ResourceManager">
+</member><member name="M:ApRadar3.AppBarModule.RegQueryValueEx(System.UIntPtr,System.String,System.IntPtr,ApRadar3.AppBarModule.RegType@,System.IntPtr,System.Int32@)">
 	<summary>
-  Returns the cached ResourceManager instance used by this class.
-</summary>
-</member><member name="P:ApRadar3.My.Resources.Resources.Culture">
-	<summary>
-  Overrides the current thread's CurrentUICulture property for all
-  resource lookups using this strongly typed resource class.
-</summary>
-</member><member name="T:ApRadar3.My.Resources.Resources">
-	<summary>
-  A strongly-typed resource class, for looking up localized strings, etc.
-</summary>
-</member><member name="P:ApRadar3.Chat.ChatBaseOffset">
-	<summary>
- Get the chatlog base offset
+ RegQueryValueEx - Queries information from the registry.
  </summary>
-	<value></value>
+	<param name="keyBase"></param>
+	<param name="valueName"></param>
+	<param name="reserved"></param>
+	<param name="type"></param>
+	<param name="zero"></param>
+	<param name="dataSize"></param>
 	<returns></returns>
-	<remarks></remarks>
-</member><member name="P:ApRadar3.Chat.POL">
+</member><member name="M:ApRadar3.AppBarModule.RegQueryValueEx(System.UIntPtr,System.String,System.IntPtr,ApRadar3.AppBarModule.RegType@,System.Byte[],System.Int32@)">
 	<summary>
- Process to monitor
+ RegQueryValueEx - Queries information from the registry.
  </summary>
-	<value>POL Process</value>
-	<remarks></remarks>
-</member><member name="E:ApRadar3.Chat.NewLine">
-	<summary>
- Event raised when a new chat line is added
- </summary>
-	<param name="LineInfo">The chatline</param>
-	<remarks></remarks>
-</member><member name="T:ApRadar3.Chat.LineAdded">
-	<summary>
- Delegate used for invoking the main thread from the chat monitor thread
- </summary>
-	<param name="LineInfo">The chatline</param>
-	<remarks></remarks>
-</member><member name="T:ApRadar3.Chat.offsets">
-	<summary>
- Enumeration to hold offset positions
- </summary>
-	<remarks></remarks>
-</member><member name="T:ApRadar3.Chat.ChatLine">
-	<summary>
- Structure of the chatline
- </summary>
-	<remarks></remarks>
-</member><member name="T:ApRadar3.Chat.ThreadItems">
-	<summary>
- Unused atm
- </summary>
-	<remarks></remarks>
-</member><member name="M:ApRadar3.Chat.#ctor">
-	<summary>
- Create a new instance of the ChatLog class
- </summary>
-	<remarks></remarks>
-</member><member name="M:ApRadar3.Chat.Initialize">
-	<summary>
- Initializes the chat monitor, checking for POL and getting the ChatBase pointer
- </summary>
-	<returns>True if all is well, False if errors</returns>
-	<remarks></remarks>
-</member><member name="M:ApRadar3.Chat.StartLogging">
-	<summary>
- Start monitoring the chatlog
- </summary>
-	<remarks></remarks>
-</member><member name="M:ApRadar3.Chat.StopLogging">
-	<summary>
- Stop monitoring the chatlog
- </summary>
-	<remarks></remarks>
-</member><member name="M:ApRadar3.Chat.chattimer_tick(System.Object,System.Timers.ElapsedEventArgs)">
-	<summary>
- The chatTimer tick event handler
- </summary>
-	<param name="sender"></param>
-	<param name="e"></param>
-	<remarks></remarks>
-</member><member name="M:ApRadar3.Chat.getLoginfo">
-	<summary>
- Sub called by the timer to get the log info
- </summary>
-	<remarks></remarks>
-</member><member name="M:ApRadar3.Chat.getoffsets">
-	<summary>
- Gets the curent chatline offsets
- </summary>
-	<remarks></remarks>
-</member><member name="M:ApRadar3.Chat.GetBlockLineCount">
-	<summary>
- Gets the line count in the current block
- </summary>
+	<param name="keyBase"></param>
+	<param name="valueName"></param>
+	<param name="reserved"></param>
+	<param name="type"></param>
+	<param name="data"></param>
+	<param name="dataSize"></param>
 	<returns></returns>
-	<remarks></remarks>
-</member><member name="M:ApRadar3.Chat.GetTotalChatLineCount">
+</member><member name="M:ApRadar3.AppBarModule.RegQueryValueEx(System.UIntPtr,System.String,System.IntPtr,ApRadar3.AppBarModule.RegType@,System.Int32@,System.Int32@)">
 	<summary>
- Gets the total line count
+ RegQueryValueEx - Queries information from the registry.
  </summary>
+	<param name="keyBase"></param>
+	<param name="valueName"></param>
+	<param name="reserved"></param>
+	<param name="type"></param>
+	<param name="data"></param>
+	<param name="dataSize"></param>
 	<returns></returns>
-	<remarks></remarks>
-</member><member name="M:ApRadar3.Chat.OnNewLine(ApRadar3.Chat.ChatLine)">
-	<summary>
- Function called from within the thread to call the newline event.  If the SyncObject is set, it will check if InvokeRequired and do so if necessary
- </summary>
-	<param name="iLineInfo"></param>
-	<remarks></remarks>
-</member><member name="M:ApRadar3.Chat.Process">
-	<summary>
- The monitoring thread
- </summary>
-	<remarks>Called every 100ms by the loop timer</remarks>
-</member><member name="M:ApRadar3.Chat.CleanUpString(System.Byte[],System.String,ApRadar3.Chat.ChatLine)">
-	<summary>
- Cleans up the Linetext from the chatlog, removing any strange or unknown characters
- </summary>
-	<param name="bytes">The bytes to perform clean up on</param>
-	<param name="ChatType">The chat line type</param>
-	<param name="li">the chatline structure</param>
-	<returns>String</returns>
-	<remarks></remarks>
-</member><member name="M:ApRadar3.Chat.ConvertToJPText(System.String)">
-	<summary>
- Converts a string to Shift-JIS format
- </summary>
-	<param name="source">The source string to convert</param>
-	<returns>A string in Shift-JIS format</returns>
-	<remarks>This only works if the user has support for far eastern languages installed</remarks>
-</member><member name="M:ApRadar3.Chat.SetLineText(System.Int32,System.String)">
-	<summary>
- Test function for changing the text ina chatline
- </summary>
-	<param name="LineNumber">The line number to change</param>
-	<param name="NewText">The new text to set</param>
-	<remarks>Does not work properly and is not currently used</remarks>
-</member><member name="M:ApRadar3.Office2007Renderer.#ctor">
-	<summary>
- Initialize a new instance of the Office2007Renderer class.
- </summary>
-</member><member name="M:ApRadar3.Office2007Renderer.OnRenderArrow(System.Windows.Forms.ToolStripArrowRenderEventArgs)">
-	<summary>
- Raises the RenderArrow event. 
- </summary>
-	<param name="e">An ToolStripArrowRenderEventArgs containing the event data.</param>
-</member><member name="M:ApRadar3.Office2007Renderer.OnRenderButtonBackground(System.Windows.Forms.ToolStripItemRenderEventArgs)">
-	<summary>
- Raises the RenderButtonBackground event. 
- </summary>
-	<param name="e">An ToolStripItemRenderEventArgs containing the event data.</param>
-</member><member name="M:ApRadar3.Office2007Renderer.OnRenderDropDownButtonBackground(System.Windows.Forms.ToolStripItemRenderEventArgs)">
-	<summary>
- Raises the RenderDropDownButtonBackground event. 
- </summary>
-	<param name="e">An ToolStripItemRenderEventArgs containing the event data.</param>
-</member><member name="M:ApRadar3.Office2007Renderer.OnRenderItemCheck(System.Windows.Forms.ToolStripItemImageRenderEventArgs)">
-	<summary>
- Raises the RenderItemCheck event. 
- </summary>
-	<param name="e">An ToolStripItemImageRenderEventArgs containing the event data.</param>
-</member><member name="M:ApRadar3.Office2007Renderer.OnRenderItemText(System.Windows.Forms.ToolStripItemTextRenderEventArgs)">
-	<summary>
- Raises the RenderItemText event. 
- </summary>
-	<param name="e">An ToolStripItemTextRenderEventArgs containing the event data.</param>
-</member><member name="M:ApRadar3.Office2007Renderer.OnRenderItemImage(System.Windows.Forms.ToolStripItemImageRenderEventArgs)">
-	<summary>
- Raises the RenderItemImage event. 
- </summary>
-	<param name="e">An ToolStripItemImageRenderEventArgs containing the event data.</param>
-</member><member name="M:ApRadar3.Office2007Renderer.OnRenderMenuItemBackground(System.Windows.Forms.ToolStripItemRenderEventArgs)">
-	<summary>
- Raises the RenderMenuItemBackground event. 
- </summary>
-	<param name="e">An ToolStripItemRenderEventArgs containing the event data.</param>
-</member><member name="M:ApRadar3.Office2007Renderer.OnRenderSplitButtonBackground(System.Windows.Forms.ToolStripItemRenderEventArgs)">
-	<summary>
- Raises the RenderSplitButtonBackground event. 
- </summary>
-	<param name="e">An ToolStripItemRenderEventArgs containing the event data.</param>
-</member><member name="M:ApRadar3.Office2007Renderer.OnRenderStatusStripSizingGrip(System.Windows.Forms.ToolStripRenderEventArgs)">
-	<summary>
- Raises the RenderStatusStripSizingGrip event. 
- </summary>
-	<param name="e">An ToolStripRenderEventArgs containing the event data.</param>
-</member><member name="M:ApRadar3.Office2007Renderer.OnRenderToolStripContentPanelBackground(System.Windows.Forms.ToolStripContentPanelRenderEventArgs)">
-	<summary>
- Raises the RenderToolStripContentPanelBackground event. 
- </summary>
-	<param name="e">An ToolStripContentPanelRenderEventArgs containing the event data.</param>
-</member><member name="M:ApRadar3.Office2007Renderer.OnRenderSeparator(System.Windows.Forms.ToolStripSeparatorRenderEventArgs)">
-	<summary>
- Raises the RenderSeparator event. 
- </summary>
-	<param name="e">An ToolStripSeparatorRenderEventArgs containing the event data.</param>
-</member><member name="M:ApRadar3.Office2007Renderer.OnRenderToolStripBackground(System.Windows.Forms.ToolStripRenderEventArgs)">
-	<summary>
- Raises the RenderToolStripBackground event. 
- </summary>
-	<param name="e">An ToolStripRenderEventArgs containing the event data.</param>
-</member><member name="M:ApRadar3.Office2007Renderer.OnRenderImageMargin(System.Windows.Forms.ToolStripRenderEventArgs)">
-	<summary>
- Raises the RenderImageMargin event. 
- </summary>
-	<param name="e">An ToolStripRenderEventArgs containing the event data.</param>
-</member><member name="M:ApRadar3.Office2007Renderer.OnRenderToolStripBorder(System.Windows.Forms.ToolStripRenderEventArgs)">
-	<summary>
- Raises the RenderToolStripBorder event. 
- </summary>
-	<param name="e">An ToolStripRenderEventArgs containing the event data.</param>
-</member><member name="T:ApRadar3.Office2007Renderer">
-	<summary>
- Draw ToolStrips using the Office 2007 themed appearance.
- </summary>
-</member><member name="M:ApRadar3.CustomRenderer.OnRenderButtonBackground(System.Windows.Forms.ToolStripItemRenderEventArgs)">
-	<summary>
- Raises the RenderButtonBackground event. 
- </summary>
-	<param name="e">An ToolStripItemRenderEventArgs containing the event data.</param>
-</member><member name="F:ApRadar3.AudioManager.SoundFlags.SND_SYNC">
-	<summary>
- The sound is played synchronously, and PlaySound returns after 
- the sound event completes. This is the default behavior.
- </summary>
-</member><member name="F:ApRadar3.AudioManager.SoundFlags.SND_ASYNC">
-	<summary>
- The sound is played asynchronously and PlaySound returns 
- immediately after beginning the sound. To terminate an 
- asynchronously played waveform sound, call PlaySound with 
- pszSound set to NULL.
- </summary>
-</member><member name="F:ApRadar3.AudioManager.SoundFlags.SND_NODEFAULT">
-	<summary>
- No default sound event is used. If the sound cannot be found, 
- PlaySound returns silently without playing the default sound.
- </summary>
-</member><member name="F:ApRadar3.AudioManager.SoundFlags.SND_MEMORY">
-	<summary>
- The pszSound parameter points to a sound loaded in memory.
- </summary>
-</member><member name="F:ApRadar3.AudioManager.SoundFlags.SND_LOOP">
-	<summary>
- The sound plays repeatedly until PlaySound is called again 
- with the pszSound parameter set to NULL. If this flag is 
- set, you must also set the SND_ASYNC flag.
- </summary>
-</member><member name="F:ApRadar3.AudioManager.SoundFlags.SND_NOSTOP">
-	<summary>
- The specified sound event will yield to another sound event 
- that is already playing. If a sound cannot be played because 
- the resource needed to generate that sound is busy playing 
- another sound, the function immediately returns False without 
- playing the requested sound.
- </summary>
-	<remarks>If this flag is not specified, PlaySound attempts 
- to stop the currently playing sound so that the device can 
- be used to play the new sound.
- </remarks>
-</member><member name="F:ApRadar3.AudioManager.SoundFlags.SND_PURGE">
-	<summary>
- Stop playing wave
- </summary>
-</member><member name="F:ApRadar3.AudioManager.SoundFlags.SND_NOWAIT">
-	<summary>
- If the driver is busy, return immediately without playing 
- the sound.
- </summary>
-</member><member name="F:ApRadar3.AudioManager.SoundFlags.SND_ALIAS">
-	<summary>
- The pszSound parameter is a system-event alias in the 
- registry or the WIN.INI file. Do not use with either 
- SND_FILENAME or SND_RESOURCE.
- </summary>
-</member><member name="F:ApRadar3.AudioManager.SoundFlags.SND_FILENAME">
-	<summary>
- The pszSound parameter is a file name. If the file cannot be 
- found, the function plays the default sound unless the 
- SND_NODEFAULT flag is set.
- </summary>
-</member><member name="F:ApRadar3.AudioManager.SoundFlags.SND_RESOURCE">
-	<summary>
- The pszSound parameter is a resource identifier; hmod must 
- identify the instance that contains the resource.
- </summary>
 </member><member name="M:ApRadar3.ExRichTextBox.#ctor">
 	<summary>
  Initializes the text colors, creates dictionaries for RTF colors and
@@ -824,114 +932,6 @@ EnhancedGridControl
  For information about the RichEdit (Unmanaged RichTextBox) ...
  http://msdn.microsoft.com/library/default.asp?url=/library/en-us/shellcc/platform/commctls/richedit/richeditcontrols/aboutricheditcontrols.asp
  </remarks>
-</member><member name="M:ApRadar3.AppBarModule.RegQueryValueEx(System.UIntPtr,System.String,System.IntPtr,ApRadar3.AppBarModule.RegType@,System.IntPtr,System.Int32@)">
-	<summary>
- RegQueryValueEx - Queries information from the registry.
- </summary>
-	<param name="keyBase"></param>
-	<param name="valueName"></param>
-	<param name="reserved"></param>
-	<param name="type"></param>
-	<param name="zero"></param>
-	<param name="dataSize"></param>
-	<returns></returns>
-</member><member name="M:ApRadar3.AppBarModule.RegQueryValueEx(System.UIntPtr,System.String,System.IntPtr,ApRadar3.AppBarModule.RegType@,System.Byte[],System.Int32@)">
-	<summary>
- RegQueryValueEx - Queries information from the registry.
- </summary>
-	<param name="keyBase"></param>
-	<param name="valueName"></param>
-	<param name="reserved"></param>
-	<param name="type"></param>
-	<param name="data"></param>
-	<param name="dataSize"></param>
-	<returns></returns>
-</member><member name="M:ApRadar3.AppBarModule.RegQueryValueEx(System.UIntPtr,System.String,System.IntPtr,ApRadar3.AppBarModule.RegType@,System.Int32@,System.Int32@)">
-	<summary>
- RegQueryValueEx - Queries information from the registry.
- </summary>
-	<param name="keyBase"></param>
-	<param name="valueName"></param>
-	<param name="reserved"></param>
-	<param name="type"></param>
-	<param name="data"></param>
-	<param name="dataSize"></param>
-	<returns></returns>
-</member><member name="M:ApRadar3.UseAntiAlias.#ctor(System.Drawing.Graphics)">
-	<summary>
- Initialize a new instance of the UseAntiAlias class.
- </summary>
-	<param name="g">Graphics instance.</param>
-</member><member name="M:ApRadar3.UseAntiAlias.Dispose">
-	<summary>
- Revert the SmoothingMode back to original setting.
- </summary>
-</member><member name="T:ApRadar3.UseAntiAlias">
-	<summary>
- Set the SmoothingMode=AntiAlias until instance disposed.
- </summary>
-</member><member name="M:ApRadar3.UseClearTypeGridFit.#ctor(System.Drawing.Graphics)">
-	<summary>
- Initialize a new instance of the UseClearTypeGridFit class.
- </summary>
-	<param name="g">Graphics instance.</param>
-</member><member name="M:ApRadar3.UseClearTypeGridFit.Dispose">
-	<summary>
- Revert the TextRenderingHint back to original setting.
- </summary>
-</member><member name="T:ApRadar3.UseClearTypeGridFit">
-	<summary>
- Set the TextRenderingHint.ClearTypeGridFit until instance disposed.
- </summary>
-</member><member name="M:ApRadar3.UseClipping.#ctor(System.Drawing.Graphics,System.Drawing.Drawing2D.GraphicsPath)">
-	<summary>
- Initialize a new instance of the UseClipping class.
- </summary>
-	<param name="g">Graphics instance.</param>
-	<param name="path">Clipping path.</param>
-</member><member name="M:ApRadar3.UseClipping.#ctor(System.Drawing.Graphics,System.Drawing.Region)">
-	<summary>
- Initialize a new instance of the UseClipping class.
- </summary>
-	<param name="g">Graphics instance.</param>
-	<param name="region">Clipping region.</param>
-</member><member name="M:ApRadar3.UseClipping.Dispose">
-	<summary>
- Revert clipping back to origina setting.
- </summary>
-</member><member name="T:ApRadar3.UseClipping">
-	<summary>
- Set the clipping region until instance disposed.
- </summary>
-</member><member name="M:ApRadar3.AppBarForm.processWatchTimer_Tick(System.Object,System.EventArgs)">
-	<summary>
- This timer will watch for any new spawned pol processes
- </summary>
-	<param name="sender"></param>
-	<param name="e"></param>
-	<remarks></remarks>
-</member><member name="M:ApRadar3.AppBarForm.LoadAvailableProcesses">
-	<summary>
- Method to load any available pol processes
- </summary>
-	<remarks></remarks>
-</member><member name="M:ApRadar3.AppBarForm.processItem_click(System.Object,System.EventArgs)">
-	<summary>
- This method handles the click event for the process items.
- </summary>
-	<param name="sender"></param>
-	<param name="e"></param>
-	<remarks></remarks>
-</member><member name="T:ApRadar3.MainModule.MobInfo">
-	<summary>
- Mob structure
- </summary>
-</member><member name="M:ApRadar3.MainModule.ValidateUser">
-	<summary>
- Validates an elitemmo user agianst the elitemmo web service
- </summary>
-	<returns></returns>
-	<remarks></remarks>
 </member>
 </members>
 </doc>

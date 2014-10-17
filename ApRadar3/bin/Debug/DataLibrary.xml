@@ -19,22 +19,6 @@ DataLibrary
 	<summary>
   A strongly-typed resource class, for looking up localized strings, etc.
 </summary>
-</member><member name="T:DataLibrary.CampedMobsDataset.CampedMobsDataTable">
-	<summary>
-Represents the strongly named DataTable class.
-</summary>
-</member><member name="T:DataLibrary.CampedMobsDataset.CampedMobsRow">
-	<summary>
-Represents strongly named DataRow class.
-</summary>
-</member><member name="T:DataLibrary.CampedMobsDataset.CampedMobsRowChangeEvent">
-	<summary>
-Row event argument class
-</summary>
-</member><member name="T:DataLibrary.CampedMobsDataset">
-	<summary>
-Represents a strongly typed in-memory cache of data.
-</summary>
 </member><member name="T:DataLibrary.ApRadarDataSet.ItemsDataTable">
 	<summary>
 Represents the strongly named DataTable class.
@@ -166,6 +150,22 @@ Used to sort self-referenced table's rows
 </member><member name="T:DataLibrary.ApRadarDataSetTableAdapters.TableAdapterManager">
 	<summary>
 TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member><member name="T:DataLibrary.CampedMobsDataset.CampedMobsDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:DataLibrary.CampedMobsDataset.CampedMobsRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:DataLibrary.CampedMobsDataset.CampedMobsRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:DataLibrary.CampedMobsDataset">
+	<summary>
+Represents a strongly typed in-memory cache of data.
 </summary>
 </member><member name="T:DataLibrary.NMList.NotoriousMonstersDataTable">
 	<summary>
